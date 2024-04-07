@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Memories</title>
+        <style>
+            /* Your CSS styles go here */
+            :root {
+                --background-color-500: #202125;
+                --background-color-400: #202529;
+                --background-color-300: #47464aaa;
+                --background-color-300-0: #47464add;
+                --primary-color: #3fe0d0;
+                --secondary-color: #c01f2f;
+                --light-color-500: #dfdeda;
+                --light-color-600: #afb1ad;
+                --light-color-700: #899392;
+
+                --max-width: 600px;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                transition: all 300ms ease;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-image: linear-gradient(
+                    to top,
+                    var(--background-color-500) 0%,
+                    var(--background-color-400) 60%
+                );
+                font-family: Papyrus, Copperplate, sans-serif;
+            }
+
+            .article-container {
+                max-width: var(--max-width);
+                margin: 0 auto;
+            }
+
+            .article-header {
+                color: var(--primary-color);
+                font-size: 1.5rem;
+                text-align: center;
+                margin-top: 3rem;
+            }
+
+            .article-text {
+                text-align: center;
+                color: var(--light-color-700);
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 1rem 0;
+            }
+
+            .button-container button,
+            .go-back {
+                padding: 0.55rem 0.8rem;
+                border-radius: 10px;
+                outline: none;
+                color: var(--light-color-500);
+                border: none;
+                font-weight: bold;
+                background-color: var(--secondary-color);
+            }
+            .button-container button:hover,
+            .go-back:hover {
+                background-color: var(--background-color-300-0);
+            }
+
+            .img-container {
+                position: absolute;
+                z-index: 100;
+                height: 0;
+
+                width: 100vw;
+                background-color: var(--background-color-300-0);
+                opacity: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: -1000px;
+
+                left: 0;
+            }
+
+            .show-img-container {
+                top: 0;
+                height: 100vh;
+                opacity: 1;
+            }
+
+            .img-container img {
+                width: 80%;
+                max-width: 400px;
+            }
+
+            .img-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="article-container">
+            <article class="single-article">
+                <header class="article-header">
+                    <h1>Childhood</h1>
+                </header>
+                <div class="img-container" id="container-1">
+                    <div class="img-wrapper">
+                        <img src="./img/childhood-01.jpg" alt="" />
+                        <button class="go-back" id="go-back-1">Go Back</button>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button id="button-1">View Image</button>
+                </div>
+                <p class="article-text">
+                    In the treasury of childhood recollections, a kaleidoscope
+                    of moments dances through the corridors of memory. From the
+                    sun-kissed days of endless play to the whispered secrets
+                    shared under the moonlit sky, each memory holds a unique
+                    charm. Amidst the laughter and tears, there's a mosaic of
+                    experiences that shape the narrative of my early years,
+                    painting a portrait of innocence and wonder.
+                </p>
+            </article>
+
+            <article class="single-article">
+                <header class="article-header">
+                    <h1>Family</h1>
+                </header>
+
+                <div class="img-container" id="container-2">
+                    <div class="img-wrapper">
+                        <img src="./img/family-01.jpg" alt="" />
+                        <button class="go-back" id="go-back-2">Go Back</button>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button id="button-2">View Image</button>
+                </div>
+                <p class="article-text">
+                    With each passing season, the tapestry of family narratives
+                    grows richer, weaving together threads of love, laughter,
+                    and shared experiences. From the comforting embrace of
+                    familial traditions to the warmth of gatherings filled with
+                    familiar faces, our family story unfolds like a cherished
+                    book, its pages filled with tales of resilience, unity, and
+                    unconditional support. Through the highs and lows, our bond
+                    remains steadfast, a testament to the enduring power of
+                    kinship.
+                </p>
+            </article>
+        </section>
+        <script>
+            const button1 = document.querySelector("#button-1");
+            const button2 = document.querySelector("#button-2");
+
+            const goBack1 = document.querySelector("#go-back-1");
+            const goBack2 = document.querySelector("#go-back-2");
+
+            const container1 = document.querySelector("#container-1");
+            const container2 = document.querySelector("#container-2");
+
+            button1.addEventListener("click", () => {
+                container1.classList.add("show-img-container");
+            });
+            button2.addEventListener("click", () => {
+                container2.classList.add("show-img-container");
+            });
+
+            goBack1.addEventListener("click", () => {
+                container1.classList.remove("show-img-container");
+            });
+            goBack2.addEventListener("click", () => {
+                container2.classList.remove("show-img-container");
+            });
+        </script>
+    </body>
+</html>
