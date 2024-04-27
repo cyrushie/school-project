@@ -41,7 +41,8 @@ class UI {
     }
 
     cardFunctionality() {
-        let currentSlideIndex = 0;
+        let currentSlideIndex =
+            parseInt(localStorage.getItem("currentIndex")) || 0;
         const slides = document.getElementsByClassName("slide");
         const slideCount = slides.length;
 
@@ -50,6 +51,7 @@ class UI {
         function moveLeft(e) {
             e.preventDefault();
             currentSlideIndex++;
+            localStorage.setItem("currentIndex", currentSlideIndex);
             if (currentSlideIndex < slideCount) {
                 updateSlideVisibility();
                 updateSlidePosition(currentSlideIndex - 1, "-100%", "0");
@@ -64,10 +66,12 @@ class UI {
             e.preventDefault();
             if (currentSlideIndex > 0) {
                 currentSlideIndex--;
+                localStorage.setItem("currentIndex", currentSlideIndex);
                 updateSlideVisibility();
                 updateSlidePosition(currentSlideIndex + 1, "100%", "0");
             } else {
                 currentSlideIndex = slideCount - 1;
+                localStorage.setItem("currentIndex", currentSlideIndex);
                 resetSlides();
                 console.log("end, i = " + currentSlideIndex);
             }
@@ -84,6 +88,7 @@ class UI {
 
         function resetSlides() {
             currentSlideIndex = 0;
+            localStorage.setItem("currentIndex", currentSlideIndex);
             updateSlideVisibility();
             updateSlidePosition(slideCount - 1, "-100%", "0");
             for (let x = 1; x < slideCount - 1; x++) {
@@ -94,6 +99,8 @@ class UI {
 
         document.getElementById("prev").onclick = moveRight;
         document.getElementById("next").onclick = moveLeft;
+        updateSlideVisibility();
+        updateSlidePosition(currentSlideIndex, "100%", "0");
     }
 
     themeFunctionality() {

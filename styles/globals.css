@@ -8,16 +8,16 @@
 }
 
 a {
-            text-decoration: none;
-            color: inherit; /* Inherit text color from parent */
-        }
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+}
 
-        /* Optionally remove default hover and focus styles */
-        a:hover,
-        a:focus {
-            text-decoration: none;
-            color: inherit; /* Inherit text color from parent */
-        }
+/* Optionally remove default hover and focus styles */
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+}
 
 :root {
     --background-color-500: #1e1e1e;
@@ -76,7 +76,7 @@ Main Headrr
     );
     display: flex;
     justify-content: center;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .main-header-child {
@@ -89,12 +89,11 @@ Main Headrr
 }
 
 .sub-header {
-  height: 6rem;
-  display: none;
+    height: 6rem;
+    display: none;
 }
 .show-sub-header {
-  display: block;
-  
+    display: block;
 }
 
 .clip-text-color {
@@ -165,7 +164,6 @@ Theme
     width: 100%;
     height: var(--main-height);
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10000;
     display: none;
 }
 
@@ -613,14 +611,18 @@ Card
     width: 90%;
     max-width: 400px;
     height: 15rem; /*relative to width*/
-    max-height: 675px; /*relative to max-width*/
-    min-height: 168px; /*relative to min-width*/
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform: scale(1);
 }
+
+.slider:hover {
+    transform: scale(1.075);
+}
+
 .buttons {
     margin-top: 1rem;
     padding: 0 0.5rem;
@@ -644,7 +646,7 @@ Card
     position: absolute;
     left: 100%;
     text-align: center;
-    transition: left 2s ease;
+    transition: left 1s ease;
     display: flex;
     justify-content: center;
 }
