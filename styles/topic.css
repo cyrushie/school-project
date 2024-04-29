@@ -369,30 +369,38 @@ Page 6
     border-bottom: 1px solid var(--primary-color);
 }
 
-.page-6 .section-content {
+.page-6 .section-content,
+.page-12 .section-content {
     display: grid;
     gap: 4rem;
 }
 
-.page-6 .header-logo {
+.page-6 .header-logo,
+.page-11 .header-logo,
+.page-12 .header-logo,
+.page-13 .header-logo {
     max-width: 100px;
     padding: 0.5rem;
 }
 
-.page-6 .header-title {
+.page-6 .header-title,
+.page-11 .header-title,
+.page-12 .header-title,
+.page-13 .header-title {
     width: 100%;
     font-size: 2.2rem;
     color: var(--light-color-500);
 }
 
-.page-6 .main-content {
+.page-6 .main-content,
+.page-12 .main-content,
+.page-13 .main-content {
     display: grid;
     gap: 1rem;
-    margin-top: 2rem;
 }
 
 /*
-Page 7
+Page 7, 8, 9, 10
 */
 
 .page-7 .item-container {
@@ -403,11 +411,20 @@ Page 7
 
 .page-7 .mainsub-content {
     margin-top: 2rem;
+}
+
+.page-7 .mainsub-content,
+.page-8 .mainsub-content,
+.page-9 .mainsub-content,
+.page-10 .mainsub-content {
     display: grid;
     gap: 1rem;
 }
 
-.page-7 .content-image {
+.page-7 .content-image,
+.page-8 .content-image,
+.page-9 .content-image,
+.page-10 .content-image {
     border-radius: 5px;
     margin: 0 auto;
     width: 80%;
@@ -417,9 +434,95 @@ Page 7
     box-shadow: var(--shadow-100);
 }
 
-.page-7 .content-image img {
+.page-7 .content-image img,
+.page-8 .content-image img,
+.page-9 .content-image img,
+.page-10 .content-image img {
     height: 100%;
     width: 100%;
+}
+
+/*
+Page 9, 10
+*/
+
+.page-9 .mainsub-content h2,
+.page-10 .mainsub-content h2 {
+    margin-top: 2rem;
+}
+
+/*
+Page 11
+*/
+
+.page-6 .main-content,
+.page-11 .main-content,
+.page-12 .main-content,
+.page-13 .main-content {
+    margin-top: 2rem;
+}
+
+.page-11 .table-container {
+    margin-top: 2rem;
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+.page-11 .table {
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 0.8rem;
+}
+
+.page-11 .table-header {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.page-11 .table .table-cell {
+    padding: 0.5rem 0 0.5rem 0.2rem;
+}
+
+.page-11 .table div:not(:nth-child(4n)) {
+    border-right: 1px solid var(--primary-color);
+}
+.page-11 .table div:not(:nth-child(-n + 4)) {
+    border-top: 1px solid var(--primary-color);
+}
+
+.page-12 .main-content h3 {
+    text-align: center;
+}
+
+/*
+Page 13
+*/
+
+.page-13 .questions-container {
+    margin-top: 1rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.page-13 .single-question {
+    display: grid;
+    gap: 0.5rem;
+    /* border-bottom: 1px solid var(--light-color-700); */
+    border-radius: 5px;
+    padding-bottom: 0.3rem;
+}
+
+.page-13 .options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.3rem;
 }
 
 /*
