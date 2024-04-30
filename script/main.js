@@ -1,7 +1,6 @@
 import { Theme } from "./utils.js ";
 
 const hamburger = document.querySelector(".ham");
-const slider = document.querySelector(".card");
 const navBar = document.querySelector(".main-header");
 const subHeader = document.querySelector(".sub-header");
 
@@ -99,6 +98,69 @@ class UI {
 
         document.getElementById("prev").onclick = moveRight;
         document.getElementById("next").onclick = moveLeft;
+        updateSlideVisibility();
+        updateSlidePosition(currentSlideIndex, "100%", "0");
+    }
+
+    card2Functionality() {
+        let currentSlideIndex =
+            parseInt(localStorage.getItem("currentIndex2")) || 0;
+        const slides = document.getElementsByClassName("slide2");
+        const slideCount = slides.length;
+
+        slides[slideCount - 1].style.left = "-100%";
+
+        function moveLeft(e) {
+            e.preventDefault();
+            currentSlideIndex++;
+            localStorage.setItem("currentIndex2", currentSlideIndex);
+            if (currentSlideIndex < slideCount) {
+                updateSlideVisibility();
+                updateSlidePosition(currentSlideIndex - 1, "-100%", "0");
+                console.log("advance, i = " + currentSlideIndex);
+            } else {
+                resetSlides();
+                console.log("back to start, i = " + currentSlideIndex);
+            }
+        }
+
+        function moveRight(e) {
+            e.preventDefault();
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                localStorage.setItem("currentIndex2", currentSlideIndex);
+                updateSlideVisibility();
+                updateSlidePosition(currentSlideIndex + 1, "100%", "0");
+            } else {
+                currentSlideIndex = slideCount - 1;
+                localStorage.setItem("currentIndex2", currentSlideIndex);
+                resetSlides();
+                console.log("end, i = " + currentSlideIndex);
+            }
+        }
+
+        function updateSlideVisibility() {
+            slides[currentSlideIndex].style.visibility = "visible";
+        }
+
+        function updateSlidePosition(index, leftValue, currentLeftValue) {
+            slides[index].style.left = leftValue;
+            slides[currentSlideIndex].style.left = currentLeftValue;
+        }
+
+        function resetSlides() {
+            currentSlideIndex = 0;
+            localStorage.setItem("currentIndex2", currentSlideIndex);
+            updateSlideVisibility();
+            updateSlidePosition(slideCount - 1, "-100%", "0");
+            for (let x = 1; x < slideCount - 1; x++) {
+                slides[x].style.visibility = "hidden";
+                slides[x].style.left = "100%";
+            }
+        }
+
+        document.getElementById("prev2").onclick = moveRight;
+        document.getElementById("next2").onclick = moveLeft;
         updateSlideVisibility();
         updateSlidePosition(currentSlideIndex, "100%", "0");
     }
@@ -279,4 +341,5 @@ window.addEventListener("DOMContentLoaded", () => {
     ui.toggleFunctionality();
     ui.navbarFunctionality();
     ui.cardFunctionality();
+    ui.card2Functionality();
 });
