@@ -591,6 +591,7 @@ Content
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    padding-bottom:2rem;
 }
 
 .content {
