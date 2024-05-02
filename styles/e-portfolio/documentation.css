@@ -11,7 +11,7 @@
 }
 
 .page a {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .page p {
@@ -51,4 +51,5 @@ Page 1
 
 .page-1 h1 {
     text-align: center;
+    margin-bottom: 2rem;
 }
