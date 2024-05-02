@@ -1,0 +1,55 @@
+.page {
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    padding: 3rem 1rem;
+    background-color: var(--background-color-300-0);
+    color: var(--light-color-700);
+    max-width: 650px;
+    margin-bottom: 3rem;
+}
+
+.page a {
+    text-decoration: underline;
+}
+
+.page p {
+    letter-spacing: 1.1;
+}
+
+.page b {
+    color: var(--light-color-600);
+}
+
+.page-container {
+    max-width: 450px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.page article {
+    display: grid;
+    gap: 1rem;
+}
+
+.article-img {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.article-img img {
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-100);
+}
+
+/*
+Page 1
+*/
+
+.page-1 h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
